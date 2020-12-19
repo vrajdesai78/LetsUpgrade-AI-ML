@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Check Loan Eligiblity</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename= "images/icons/favicon.ico") }} "/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/bootstrap/css/bootstrap.min.css") }} ">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "fonts/font-awesome-4.7.0/css/font-awesome.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "fonts/iconic/css/material-design-iconic-font.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "fonts/iconic/css/material-design-iconic-font.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/css-hamburgers/hamburgers.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/animsition/css/animsition.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/select2/select2.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/daterangepicker/daterangepicker.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "vendor/noui/nouislider.min.css") }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "css/util.css") }} ">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= "css/main.css") }} ">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100" style="background-image: linear-gradient(to right bottom, #62161e, #720033, #770054, #69007d, #212ba9);">
+		<div class="wrap-contact100" style="background: #ffffff82;">
+			<form class="contact100-form validate-form" method='POST' action="{{ url_for('predict') }}">
+				<span class="contact100-form-title" style="color: #1b005d;">	
+					Check Loan Eligiblity
+				</span>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter a valid name">
+					<span class="label-input100">Name *</span>
+					<input class="input100" type="text" name="Name" placeholder="Enter Your Name " >
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100 input100-select">
+				
+				<span class="label-input100">Gender *</span>
+					<div>
+						<select class="js-select2" name="gender">
+							<option selected value="1">Male</option>
+							<option value="0">Female</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+	
+				</div>
+				
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter your marital status">
+					<span class="label-input100">Marital status *</span>
+					<div>
+						<select class="js-select2" name="m_status">
+							<option selected value="0">No</option>
+							<option value = "1">Yes</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 validate-input  bg1 rs1-wrap-input100 input100-select" data-validate = "Enter number of dependents">
+					<span class="label-input100">Number of Dependents *</span>
+					<div>
+						<select class="js-select2" name="no_dependents">
+							<option selected value = "0">0</option>
+							<option value = "1">1</option>
+							<option value="2">2</option>
+							<option value="3">3+</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter a valid name">
+					<span class="label-input100">Education *</span>
+					<div>
+						<select class="js-select2" name="education">
+							<option selected value = "0">Graduate</option>
+							<option value = "1">Non-Graduate</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100 input100-select" data-validate = "Enter your answer">
+					<span class="label-input100">Self employed *</span>
+					<div>
+						<select class="js-select2" name="self_employed">
+							<option selected value = "1">YES</option>
+							<option value = "0">NO</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter your income">
+				
+					<span class="label-input100">Monthly Applicant's income (In USD)*</span>
+					<input class="input100" type="number" name="applicant_income" placeholder="Enter Your Income ">
+					
+				</div>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100 input100-select" data-validate = "Enter co-applicant's income">
+				
+				<span class="label-input100">Monthly Co-Applicant's income (In USD)*</span>
+					<input class="input100" type="number" name="coapplicant_income" placeholder="Enter Co-Applicant's Income in Thousands ">
+	
+				</div>
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter loan amount in Thousands ">
+				
+					<span class="label-input100">Loan Amount (In Thousands (USD))*</span>
+					<input class="input100" type="number" name="loanAmount" placeholder="Enter Loan Amount ">
+					
+				</div>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100 input100-select" data-validate = "Enter loan tenure">
+				
+				<span class="label-input100">Loan Tenure (In Months) *</span>
+					<input class="input100" type="number" name="tenure" placeholder="Enter Loan Tenure ">
+	
+				</div>
+				
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter credit history">
+					<span class="label-input100">Credit History *</span>
+					<div>
+						<select class="js-select2" name="credit_history">
+							<option selected value="1">Had a Credit history</option>
+							<option value = "0">New applicant</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100 input100-select" data-validate = "Enter Property area">
+					<span class="label-input100">Property Area *</span>
+					<div>
+						<select class="js-select2" name="property_area">
+							<option selected value = "2">Urban</option>
+							<option value="1">Semi Urban</option>
+							<option value="0">Rural</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" id="myBtn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename= "vendor/jquery/jquery-3.2.1.min.js") }} "></script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/animsition/js/animsition.min.js") }} "></script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/bootstrap/js/popper.js") }} "></script>
+<script src="{{ url_for('static', filename= "vendor/bootstrap/js/bootstrap.min.js") }} "></script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/select2/select2.min.js") }} "></script>
+<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/daterangepicker/moment.min.js") }} "></script>	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/countdowntime/countdowntime.js") }} "></script><!--===============================================================================================-->
+<script src="{{ url_for('static', filename= "vendor/noui/nouislider.min.js") }} "></script>	<script>
+		
+		var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename= 'js/main.js') }} "></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-23581568-13');
+	</script>
+
+<script>
+	if({{loan_status}} == 1) {
+		msg = "Congratulations, You are eligible for this loan";
+	}
+	else {
+		msg = "Sorry, You are not eligible for this loan";
+	}
+alert(msg);
+</script>
+
+<!-- <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none"; 
+  }
+}
+</script> -->
+
+
+
+</body>
+</html>
+
+<!-- , property area 3 , credit history -->
+
